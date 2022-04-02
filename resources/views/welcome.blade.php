@@ -13,7 +13,6 @@
 </head>
 
 <body>
-Laravel Test
 <div id="work">
     <!-- app -->
 </div>

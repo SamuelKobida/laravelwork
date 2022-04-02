@@ -2,17 +2,19 @@
 
     <Header/>
     <router-view/>
-    <Footer/>
+
 
 </template>
 
 <script>
-import home from "./home";
+import Header from "./Header";
+
 
 
 export default {
     components: {
-        home
+        Header,
+
     }
 }
 </script>
