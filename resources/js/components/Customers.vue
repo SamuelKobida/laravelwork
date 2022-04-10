@@ -45,7 +45,7 @@
                         <td>{{ customer.adress }}</td>
                         <td>{{ customer.phone }}</td>
                         <td>
-                            <button class="btn btn-danger" @click="deleteProduct(customer.id)">Delete</button>
+                            <button class="btn btn-danger" @click="deleteC(customer.id)">Delete</button>
                         </td>
                     </tr>
                     </tbody>
@@ -58,6 +58,9 @@
 </template>
 
 <script>
+
+import axios from "axios";
+
 export default {
     name: "Customers",
 
@@ -96,9 +99,13 @@ export default {
             });
         },
 
-        deleteCustomer(){
-            //
-        }
+        deleteC(id){
+            axios.delete(`./api/customers/delete/${id}`).then(() => {
+                window.location.reload()
+            }).catch(function (error) {
+                console.log(error);
+            });
+        },
 
     }
 }

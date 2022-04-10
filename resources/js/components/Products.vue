@@ -39,7 +39,7 @@
         <td>{{ product.name }}</td>
         <td>{{ product.price }}</td>
         <td>
-            <button class="btn btn-danger" @click="deleteProduct(product.id)">Delete</button>
+            <button class="btn btn-danger" @click="deleteP(product.id)">Delete</button>
         </td>
     </tr>
     </tbody>
@@ -52,7 +52,11 @@
 </template>
 
 <script>
+
+import axios from "axios";
+
 export default {
+
     name: "Products",
 
     data() {
@@ -87,9 +91,15 @@ export default {
                 console.log(error);
             });
         },
-        deleteProduct(){
-            //
-        }
+
+
+        deleteP(id){
+            axios.delete(`./api/products/delete/${id}`).then(() => {
+                window.location.reload()
+                }).catch(function (error) {
+                console.log(error);
+            });
+        },
 
     }
 }
