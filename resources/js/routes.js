@@ -7,13 +7,6 @@ let base_path = "/workproject/public/";
 export const routes = [
 
     {
-        name: 'customers',
-        path: base_path,
-        component: Customers,
-
-    },
-
-    {
         name: 'invoices',
         path: base_path,
         component: Invoices,
@@ -21,8 +14,15 @@ export const routes = [
     },
 
     {
+        name: 'customers',
+        path: base_path + 'customers',
+        component: Customers,
+
+    },
+
+    {
         name: 'products',
-        path: base_path,
+        path: base_path + 'products',
         component: Products,
 
     },

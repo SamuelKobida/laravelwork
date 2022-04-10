@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\GeneralController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +18,11 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+//SAVING DATA TO DATABASE
+Route::post('/customers', [GeneralController::class,'customers']);
+Route::post('/products', [GeneralController::class,'products']);
+
+//GETTING DATA TO VUE
+Route::get('/products', [GeneralController::class,'getproducts']);
+Route::get('/customers', [GeneralController::class,'getcustomers']);
