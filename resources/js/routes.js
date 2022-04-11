@@ -1,6 +1,7 @@
 import Customers from "./components/Customers";
 import Invoices from "./components/Invoices";
 import Products from "./components/Products";
+import Invoice_items from "./components/Invoice_items";
 
 let base_path = "/workproject/public/";
 
@@ -26,6 +27,13 @@ export const routes = [
         component: Products,
 
     },
+
+    {
+        name: 'invoice_items',
+        path: base_path + 'invoice_items/:id',
+        component: Invoice_items,
+        props: true,
+    }
 
 ];
 

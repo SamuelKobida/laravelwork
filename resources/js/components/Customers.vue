@@ -13,7 +13,7 @@
 
                     <div class="form-group">
                         <label class="m-1">Adress</label>
-                        <input class="form-control" v-model="fields.adress" placeholder="Enter mail">
+                        <input class="form-control" v-model="fields.adress" placeholder="Enter adress">
                     </div>
 
                     <div class="form-group">
@@ -67,12 +67,12 @@ export default {
     data() {
         return {
             customers: [],
-
             fields: {
                 name: '',
                 adress: '',
                 phone: '',
             }
+
         }
     },
 
@@ -91,7 +91,9 @@ export default {
             });
         },
 
-        submit() {
+
+
+        submit:function () {
             axios.post("./api/customers", this.fields).then(() => {
                 window.location.reload()
             }).catch(function (error) {
@@ -99,7 +101,7 @@ export default {
             });
         },
 
-        deleteC(id){
+        deleteC:function (id){
             axios.delete(`./api/customers/delete/${id}`).then(() => {
                 window.location.reload()
             }).catch(function (error) {

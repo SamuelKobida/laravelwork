@@ -1,11 +1,9 @@
 <template>
-
     <div class=" container-sm p-3">
         <div class="card border-primary ">
             <div class="card-body">
 
                 <form>
-
                     <div class="form-group">
                         <label class="m-1">Name</label>
                         <input class="form-control" v-model="fields.name" placeholder="Enter name">
@@ -17,14 +15,12 @@
                     </div>
 
                     <button type="submit" class="btn btn-primary" @click="submit">Submit</button>
-
-
                 </form>
-
 
 
     <table class="table table-responsive-lg">
     <thead>
+
     <tr>
         <th>Id</th>
         <th>Name</th>
@@ -58,7 +54,6 @@ import axios from "axios";
 export default {
 
     name: "Products",
-
     data() {
         return {
             products: [],
@@ -84,7 +79,7 @@ export default {
             });
         },
 
-        submit() {
+        submit:function () {
             axios.post("./api/products", this.fields).then(() => {
                 window.location.reload()
             }).catch(function (error) {
@@ -93,7 +88,7 @@ export default {
         },
 
 
-        deleteP(id){
+        deleteP:function (id){
             axios.delete(`./api/products/delete/${id}`).then(() => {
                 window.location.reload()
                 }).catch(function (error) {
