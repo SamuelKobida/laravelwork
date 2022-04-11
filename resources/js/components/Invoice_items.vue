@@ -5,7 +5,7 @@
             <div class="card-body">
 
 
-                <form @submit.prevent="submit">
+                <form>
 
                     <div class="form-group">
                         <label class="m-1">Product</label>
@@ -46,7 +46,7 @@
                     </tr>
                     </tbody>
                 </table>
-
+                <h2>Total price for this customer is {{total}} €</h2>
             </div>
         </div>
     </div>
@@ -78,10 +78,22 @@ export default {
         this.reciveData();
         this.loadProducts();
     },
+
+    computed: {
+        total () {
+            return this.invoice_items.reduce( (sum, invoice_item) => {
+                return sum + parseInt(((invoice_item.price*invoice_item.quantity)/100)*(100-invoice_item.discount))
+            }, 0)
+        }
+    },
+
     methods:{
 
-        back($total){
-            this.$router.push({name: "invoices", params: {total: $total}});
+
+
+
+        back(){
+            this.$router.push({name: "invoices"});
         },
 
         reciveData:function (){

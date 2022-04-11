@@ -31,7 +31,6 @@
                         <th>Id</th>
                         <th>Name</th>
                         <th>Discount</th>
-                        <th>Total</th>
                         <th></th>
                     </tr>
                     </thead>
@@ -42,10 +41,9 @@
 
                     <tr v-for="invoice in invoices" :value="invoice.id" v-on:click="clickList(invoice.id)" >
                         <td>{{ invoice.id }}</td>
-                        <td>{{ customers[invoice.customer_id-1].name}}</td>
+                        <td>{{ invoice.customer_id}}</td>
                         <!-- Pokazi sa pri rozhodenom poradi ideciek.. treba fix -->
                         <td>{{ invoice.discount+"%" }}</td>
-                        <td>{{ invoice.total+"€" }}</td>
                         <td>
                             <button class="btn btn-danger" @click="deleteI(invoice.id)">Delete</button>
                         </td>
