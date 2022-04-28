@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\Customer;
 use App\Models\Invoice;
 use Illuminate\Http\Request;
 
@@ -13,6 +12,16 @@ class InvoicesController extends Controller
     {
         $invoices = Invoice::create($request->all());
         $invoices->save();
+    }
+
+    public function storetotal(Request $request,$id)
+    {
+
+        $invoice = Invoice::find($id);
+        $invoice->total= $request->total;
+        $invoice->save();
+
+
     }
     public function invoices()
     {

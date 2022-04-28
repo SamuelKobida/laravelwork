@@ -30,7 +30,9 @@
                     <tr>
                         <th>Id</th>
                         <th>Name</th>
+                        <th>Total</th>
                         <th>Discount</th>
+                        <th></th>
                         <th></th>
                     </tr>
                     </thead>
@@ -39,13 +41,18 @@
 
                     <tbody>
 
-                    <tr v-for="invoice in invoices" :value="invoice.id" v-on:click="clickList(invoice.id)" >
+                    <tr v-for="invoice in invoices" :value="invoice.id">
                         <td>{{ invoice.id }}</td>
-                        <td>{{ invoice.customer_id}}</td>
-                        <!-- Pokazi sa pri rozhodenom poradi ideciek.. treba fix -->
+                        <td>{{ customers[invoice.customer_id-1].name }}</td>
+                        <!-- Pokazi sa pri rozhodenom poradi ideciek.. treba fix
+                        0: {id: 1, name: "Samsam", adre....  berie to customers nie id ale prvy zaznam-->
+                        <td>{{invoice.total}}€</td>
                         <td>{{ invoice.discount+"%" }}</td>
                         <td>
                             <button class="btn btn-danger" @click="deleteI(invoice.id)">Delete</button>
+                        </td>
+                        <td>
+                            <button class="btn btn-primary" @click="clickList(invoice.id)">Products</button>
                         </td>
                     </tr>
                     </tbody>
