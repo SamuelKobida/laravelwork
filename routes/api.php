@@ -37,7 +37,12 @@ Route::post('/invoices', [InvoicesController::class,'store']);
 Route::get('/invoices', [InvoicesController::class,'invoices']);
 Route::delete('/invoices/delete/{id}', [InvoicesController::class, 'delete']);
 
+Route::post('/sendtotal/{id}', [InvoicesController::class,'storetotal']);
+
+
 //INVOICE_ITEMS
 Route::post('/invoice_items', [InvoiceitemsController::class,'store']);
 Route::get('/invoice_items/{id}', [InvoiceitemsController::class,'invoiceitems']);
 Route::delete('/invoice_items/delete/{id}', [InvoiceitemsController::class, 'delete']);
+
+Route::get('/total/{id}', [InvoiceitemsController::class,'total']);
